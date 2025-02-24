@@ -9,8 +9,10 @@ interface User {
 
 interface State {
   users: User[];
+  allUsers: User[];
   top10Users: User[];
   searchedUser: User | null;
+  isFuzzySearch: boolean;
 }
 
 const initialState: State = {
@@ -18,7 +20,7 @@ const initialState: State = {
   allUsers: [],
   top10Users: [],
   searchedUser: null,
-  isFuzzySearch: false
+  isFuzzySearch: false,
 };
 
 const userReducer = (state = initialState, action: any) => {
