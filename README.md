@@ -13,10 +13,12 @@ npm install
 Install pods before running
 
 ```sh
-npx pod-install
+cd ios
+pod install
+cd ..
 ```
 
-In case npx pod-install fails, run:
+In case npx pod install fails, run:
 
 ```sh
 bundle install
@@ -38,6 +40,6 @@ npx react-native run-android
 npm test redux
 ```
 
-# Screenshots
+# Videos
+https://github.com/user-attachments/assets/b8f57327-279d-4838-81a3-7b724e1786a3
 
-![Simulator Screenshot - iPhone 15 Pro Max - 2025-02-24 at 17 55 25](https://github.com/user-attachments/assets/268e75fa-ee5a-414e-ad88-b21313c59e2c)
