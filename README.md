@@ -14,6 +14,7 @@ Install pods before running
 
 ```sh
 cd ios
+rm -rf Pods Podfile.lock
 pod install
 cd ..
 ```
