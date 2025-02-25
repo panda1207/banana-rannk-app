@@ -10,9 +10,7 @@ const HomeScreen = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const dispatch = useDispatch();
 
-  const { users, allUsers, searchedUser, isFuzzySearch } = useSelector((state: any) => state.user);
-  const isSearching = searchQuery.length > 0;
-  const dataToRender = users;
+  const { users, allUsers, searchedUser, isFuzzySearch, sortByNameAsc, sortByRankAsc } = useSelector((state: any) => state.user);
 
   const handleClearSearch = () => {
     setSearchQuery("");
@@ -55,12 +53,27 @@ const HomeScreen = () => {
         {/* Sorting Options */}
         <SortingContainer>
           <StyledButton onPress={() => dispatch(sortByName())}>
-            <ButtonText>Sort by Name</ButtonText>
+            <ButtonText>
+              Name
+            </ButtonText>
+            <Icon 
+                name={sortByNameAsc ? "arrow-up-outline" : "arrow-down-outline"} 
+                size={16} 
+                color="white"
+              />
           </StyledButton>
+
           <StyledButton onPress={() => dispatch(showLowestRanked())}>
-            <ButtonText>Lowest Ranked</ButtonText>
+            <ButtonText>
+              Rank
+            </ButtonText>
+            <Icon 
+                name={sortByRankAsc ? "arrow-up-outline" : "arrow-down-outline"} 
+                size={16} 
+                color="white" 
+              />
           </StyledButton>
-        </SortingContainer>      
+        </SortingContainer>
 
         {/* Table Header */}
         <TableHeader>
@@ -122,6 +135,9 @@ const StyledButton = styled.TouchableOpacity`
   background-color: #4CAF50;
   padding: 10px 15px;
   border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `;
 
 const ButtonText = styled.Text`
@@ -159,7 +175,7 @@ const ColumnTextBold = styled(ColumnText)`
 const RowContainer = styled.View`
   flex-direction: row;
   padding: 10px;
-  background-color: ${(props) => (props.isHighlighted ? "#FFD700" : "white")};
+  background-color: ${(props: any) => (props.isHighlighted ? "#FFD700" : "white")};
   border-radius: 8px;
   margin-bottom: 5px;
 `;

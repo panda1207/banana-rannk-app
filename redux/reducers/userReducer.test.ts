@@ -22,7 +22,7 @@ describe('userReducer', () => {
     const newState = userReducer(undefined, action);
 
     expect(newState.users.length).toBe(3);
-    expect(newState.users[0].name).toBe('Alice'); // Sorted by bananas
+    expect(newState.users[0].name).toBe('Alice');
     expect(newState.allUsers.length).toBe(3);
     expect(newState.top10Users.length).toBe(3);
   });
@@ -38,7 +38,7 @@ describe('userReducer', () => {
   });
 
   it('should handle SEARCH_USER (not found)', () => {
-    global.alert = jest.fn();  // ✅ Mock alert to prevent test crash
+    global.alert = jest.fn();
     const initialState = { users: mockUsers, allUsers: mockUsers, searchedUser: null };
     const action = { type: SEARCH_USER, payload: 'Unknown' };
     const newState = userReducer(initialState, action);
